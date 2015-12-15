@@ -18,7 +18,7 @@ Because the backups are compressed, the whole caboodle only takes about 4 times 
 
 Backup  [-&lt;generations&gt;] [-s(hutdown)] &lt;folder&gt; &lt;disk&gt; [&lt;disk&gt; ...]
 
-generations: Number of month folders to create before reusing the first one. Default 3.
+&lt;generations&gt;: Number of month folders to create before reusing the first one. Default 3.
 
 -s : Shuts down computer when backup is finished.
 
