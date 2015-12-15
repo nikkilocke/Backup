@@ -16,14 +16,14 @@ Because the backups are compressed, the whole caboodle only takes about 4 times 
 
 ##Usage
 
-Backup  [-<generations>] [-s(hutdown)] <folder> <disk> [<disk> ...]
+Backup  [-&lt;generations&gt;] [-s(hutdown)] &lt;folder&gt; &lt;disk&gt; [&lt;disk&gt; ...]
 
 generations: Number of month folders to create before reusing the first one. Default 3.
 
 -s : Shuts down computer when backup is finished.
 
-folder: Destination parent folder (folders named "0", "1", "2" will be created for the month folders below this one).
+&lt;folder&gt;: Destination parent folder (folders named "0", "1", "2" will be created for the month folders below this one).
 
-<disk>: Drive letter - e.g. C
+&lt;disk&gt;: Drive letter - e.g. C
 
-#This program requires Drive Snapshot to function,
+#This program requires [Drive Snapshot](http://www.drivesnapshot.de/en/down.htm "Download") to function
