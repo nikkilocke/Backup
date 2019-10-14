@@ -114,6 +114,8 @@ namespace Backup {
 				disk, folder, now.Day);
 			Log("{1} backup of disk {0} to {2} completed in {3}, Exit code {4}", disk,
 				fullback ? "Full" : "Differential", filename, DateTime.Now - started, p.ExitCode);
+			if (p.ExitCode != 0)
+				Usage("Backup failed with exit code " + p.ExitCode);
 		}
 
 		static void Log(string format, params object[] args) {
