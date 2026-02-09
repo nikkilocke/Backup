@@ -20,7 +20,7 @@ namespace Backup {
 				now = DateTime.Now.Date;
 				generation = (now.Year - 2000) * 12 + (now.Month - 1);
 				foreach (string arg in args) {
-					if (folder == null) {
+					if (string.IsNullOrEmpty(folder)) {
 						if (arg.StartsWith("-")) {
 							switch (arg[1]) {
 								case 's':
@@ -104,6 +104,7 @@ namespace Backup {
 				@"-R -L0 -Go --usevss {0}: {1}\{0}.SNA"
 				: @"-R -L0 -Go --usevss {0}: {1}\Snapshot{0}{2:00}.SNA -h{1}\{0}.hsh",
 				disk, folder, now.Day);
+			Console.WriteLine("{0} {1}", p.StartInfo.FileName, p.StartInfo.Arguments);
 			DateTime started = DateTime.Now;
 			p.Start();
 			System.Console.WriteLine("Waiting for {1} backup of disk {0} to finish", disk,
