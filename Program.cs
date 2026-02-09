@@ -7,17 +7,16 @@ using System.Diagnostics;
 
 namespace Backup {
 	class Program {
-		static string folder;
-		static string logfile;
+		static string folder = "";
+		static string logfile = "";
 		static bool shutdown;
 		static int generations = 3;
 		static int generation;
-		static List<string> disks;
+		static List<string> disks = new List<string>();
 		static DateTime now;
 
 		static void Main(string[] args) {
 			try {
-				disks = new List<string>();
 				now = DateTime.Now.Date;
 				generation = (now.Year - 2000) * 12 + (now.Month - 1);
 				foreach (string arg in args) {
@@ -53,8 +52,9 @@ namespace Backup {
 						disks.Add(arg);
 					}
 				}
-				if (disks.Count < 1) {
+				if (disks.Count < 1 || string.IsNullOrEmpty(folder)) {
 					Usage("");
+					return;
 				}
 				generation %= generations;
 				if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
